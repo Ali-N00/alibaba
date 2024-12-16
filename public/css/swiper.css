@@ -1,0 +1,19 @@
+.swiper {
+  width: 85%;
+  height: 100%;
+  margin-top: 90px;
+}
+.swiper-slide {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.image-container {
+  display: flex;
+  width: 100%;
+}
+.swiper-slide img {
+  width: 50%; /* یا هر درصدی که برایتان مناسب است */
+  height: auto;
+  object-fit: cover; /* اختیاری: برای اینکه تصاویر به درستی برش خورده و فضا را پر کنند */
+}

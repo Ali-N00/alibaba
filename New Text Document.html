@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./public/icon/icon/monogram-680c163d (1).svg" />
+    <title>alibaba</title>
+  </head>
+  <body>
+    <h1>Loading...</h1>
+    <script>
+      // Function to detect screen size and load the appropriate HTML
+      function loadAppropriatePage() {
+        const isMobile = window.innerWidth <= 768; // 768px is a common breakpoint for mobile devices
+
+        // Load the corresponding HTML file based on the screen width
+        if (isMobile) {
+          // For mobile devices, load mobile.html
+          fetch("index.html")
+            .then((response) => response.text())
+            .then((data) => {
+              document.body.innerHTML = data; // Replace content with mobile version
+            })
+            .catch((error) => {
+              console.error("Error loading mobile HTML:", error);
+            });
+        } else {
+          // For desktop devices, load desktop.html
+          fetch("desktop.html")
+            .then((response) => response.text())
+            .then((data) => {
+              document.body.innerHTML = data; // Replace content with desktop version
+            })
+            .catch((error) => {
+              console.error("Error loading desktop HTML:", error);
+            });
+        }
+      }
+
+      // Load the appropriate page when the window is loaded
+      window.onload = loadAppropriatePage;
+
+      // Optionally, you can recheck when the window is resized
+      window.onresize = loadAppropriatePage;
+    </script>
+    <script>
+      setTimeout(() => {
+        // دسترسی به دکمه‌ها و زیرمنوها
+        const visaMenu = document.getElementById("visa-menu");
+        const visaSubmenu = document.getElementById("visa-submenu");
+
+        const tourMenu = document.getElementById("more-menu");
+        const tourSubmenu = document.getElementById("more-submenu");
+
+        const ticketMenu = document.getElementById("ticket-menu");
+        const ticketSubmenu = document.getElementById("ticket-submenu");
+
+        // اضافه کردن رویداد کلیک به دکمه "ویزا"
+        visaMenu.addEventListener("click", function () {
+          visaSubmenu.classList.toggle("hidden");
+          tourSubmenu.classList.add("hidden"); // بسته کردن منوی تور اگر باز باشد
+          ticketSubmenu.classList.add("hidden"); // بسته کردن منوی بلیط اگر باز باشد
+        });
+
+        // اضافه کردن رویداد کلیک به دکمه "تور"
+        tourMenu.addEventListener("click", function () {
+          tourSubmenu.classList.toggle("hidden");
+          visaSubmenu.classList.add("hidden"); // بسته کردن منوی ویزا اگر باز باشد
+          ticketSubmenu.classList.add("hidden"); // بسته کردن منوی بلیط اگر باز باشد
+        });
+
+        // اضافه کردن رویداد کلیک به دکمه "بلیط"
+        ticketMenu.addEventListener("click", function () {
+          ticketSubmenu.classList.toggle("hidden");
+          visaSubmenu.classList.add("hidden"); // بسته کردن منوی ویزا اگر باز باشد
+          tourSubmenu.classList.add("hidden"); // بسته کردن منوی تور اگر باز باشد
+        });
+        function changeColor() {
+          var link = document.getElementById("bus-link");
+          link.classList.toggle("active"); // اگر کلاس active وجود دارد آن را حذف می‌کند یا اضافه می‌کند
+          link.style.color = "#9c28fc";
+        }
+      }, 1500);
+    </script>
+    <script>
+      setTimeout(() => {
+        var swiper = new Swiper(".mySwiper", {});
+      }, 1500);
+    </script>
+    <!-- Initialize Swiper -->
+    <script>
+      setTimeout(() => {
+        var swiper = new Swiper(".mySwiper", {
+          pagination: {
+            el: ".swiper-pagination",
+            loop: true, // فعال‌سازی حلقه برای تکرار اسلایدها
+            slidesPerView: 1, // نمایش یک اسلاید در هر بار
+            spaceBetween: 10, // فاصله بین اسلایدها
+            autoplay: {
+              delay: 500,
+              disableOnInteraction: false,
+            },
+          },
+          navigation: {
+            nextEl: ".swiper-button-next", // دکمه "بعدی"
+            prevEl: ".swiper-button-prev", // دکمه "قبلی"
+          },
+          pagination: {
+            el: ".swiper-pagination", // نقطه‌های پیمایش
+            clickable: true, // قابلیت کلیک روی نقطه‌ها
+          },
+        });
+      }, 1500);
+    </script>
+    <script>
+      setTimeout(() => {
+        // JavaScript to handle accordion toggle
+        const accordionItems = document.querySelectorAll(
+          "#customAccordion .border-b"
+        );
+
+        accordionItems.forEach((item) => {
+          const button = item.querySelector("button");
+          const collapse = item.querySelector(".accordion-collapse");
+
+          button.addEventListener("click", () => {
+            const isExpanded = button.getAttribute("aria-expanded") === "true";
+
+            // Toggle the aria-expanded attribute
+            button.setAttribute("aria-expanded", !isExpanded);
+
+            // If the item is currently expanded, collapse it
+            if (isExpanded) {
+              collapse.style.maxHeight = "0";
+            } else {
+              collapse.style.maxHeight = `${collapse.scrollHeight}px`; // Expand it to its full height
+            }
+          });
+        });
+      }, 1500);
+    </script>
+    <script>
+      setTimeout(() => {
+        const toggleBtn = document.getElementById("toggle-btn");
+        const moreLinks = document.getElementById("more-links");
+        const arrow = document.getElementById("arrow");
+
+        toggleBtn.addEventListener("click", () => {
+          moreLinks.classList.toggle("hidden"); // نمایش یا پنهان کردن لینک‌های بیشتر
+          if (moreLinks.classList.contains("hidden")) {
+            toggleBtn.innerHTML = 'بیشتر <span id="arrow">▼</span>'; // تغییر متن و فلش
+          } else {
+            toggleBtn.innerHTML = 'کمتر <span id="arrow">▲</span>'; // تغییر متن و فلش
+          }
+        });
+      }, 1500);
+    </script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@font-face{
+    font-family: "vazir";
+    src: url(../../fonts/Vazir-Light.woff);
+}
+body{
+    font-family: "vazir";
+}
